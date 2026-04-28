@@ -1,0 +1,6 @@
+.banner-img {
+  height: 500px;        /* control height here */
+  object-fit: cover;    /* keeps image clean without distortion */
+  margin-top: 0px;
+  padding-top: 0px;
+}
