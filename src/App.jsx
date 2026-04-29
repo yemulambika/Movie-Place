@@ -1,10 +1,10 @@
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./temp/Navbar.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Movies from "./components/Movies.jsx";
-import WatchList from "./components/WatchList.jsx";
+import Movies from "./temp/Movies.jsx";
+import WatchList from "./temp/WatchList.jsx";
 import { useEffect, useState } from "react";
-import {MovieContext} from "./components/MovieContext.jsx";
-import MoodSelector from "./components/MoodSelector.jsx";
+import {MovieContext} from "./temp/MovieContext.jsx";
+import MoodSelector from "./temp/MoodSelector.jsx";
 
 
 
