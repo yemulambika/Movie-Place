@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Banner from "./Banner.js";
-import MovieCard from "./MovieCard.js";
+import Banner from "./Banner.jsx";
+import MovieCard from "./MovieCard.jsx";
 import axios from "axios";
-import Pagination from "./Pagination.js";
+import Pagination from "./Pagination.jsx";
 
 // Starting at 11PM
 

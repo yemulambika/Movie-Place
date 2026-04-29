@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
-import { MovieContext } from "./MovieContext.js";
+import { MovieContext } from "./MovieContext.jsx";
 
 import { Link } from "react-router-dom";
 import { getMovieVideos } from '../services/movieService.js';
-import TrailerModal from './TrailerModal.js';
+import TrailerModal from './TrailerModal.jsx';
 
 function MovieCard({ movieObject }) {
   const { watchList, handleAddtoWatchList, DeleteFromWatchList } =
