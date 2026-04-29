@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from "react";
-import { genreids } from "../utlities";
+import { genreids } from "../utlities.js";
 import { useContext } from "react";
-import { MovieContext } from "./MovieContext";
+import { MovieContext } from "./MovieContext.jsx";
 
 
 function WatchList() {

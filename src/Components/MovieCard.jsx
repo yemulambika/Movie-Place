@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { MovieContext } from "./MovieContext";
+import { MovieContext } from "./MovieContext.jsx";
 
 import { Link } from "react-router-dom";
 import { getMovieVideos } from '../services/movieService.js';
