@@ -1,40 +1,64 @@
-import MoviesCard from "./MoviesCard";
+import React, { useEffect, useState } from "react";
+import Banner from "./Banner";
+import MovieCard from "./MovieCard";
 import axios from "axios";
-
-import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
-function Movies({handleMovie , handleRemoveMovie , watchList}){
-    const[movies , setMovies] = useState([]);
-    const[pageNo , setPageno] = useState(1);
 
-     const handleFor=()=>{
-        setPageno(pageNo+1);
-     }
-     const handleBack=()=>{
-         if(pageNo == 1){
-            setPageno(pageNo);
-        }else{
-            setPageno(pageNo-1);
-        }
-     }
-    useEffect(()=>{
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b971d72159bc3868808a6fb913330de6&language=en-US&page=${pageNo}`).then(function(res){
-            setMovies(res.data.results);
-        })
-    },[pageNo])
-    return (
+// Starting at 11PM
 
-        <div className="p-5">
-        <div className="text-2xl m-5 font-bold text-center">
-            Trending Movies
-        </div>
-        <div className="flex flex-row flex-wrap justify-around gap-6">
-            {movies.map((movieObj)=>{
-                return <MoviesCard  movieObj={movieObj}   key = {movieObj.id} poster_path={movieObj.poster_path} name={movieObj.original_title} handleMovie={handleMovie} handleRemoveMovie ={handleRemoveMovie} watchList={watchList} />
-            })}
-        </div>
-        <Pagination pageNo={pageNo} handleBack={handleBack} handleFor={handleFor}/>
-        </div>
-    )
+// https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1
+
+function Movies() {
+  const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
+  const [maxPage , setMaxPage] = useState(null)
+
+  function pageNext() {
+    if(page<maxPage){
+    setPage(page + 1);
+    }
+    
+  }
+
+  function pagePrevious() {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  }
+
+  useEffect(() => {
+    async function fetchMovies() {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=3aec63790d50f3b9fc2efb4c15a8cf99&language=en-US&page=${page}`
+      );
+
+      setMovies(response.data.results);
+      setMaxPage(response.data.total_pages)
+    }
+
+    fetchMovies();
+  }, [page]);
+
+  console.log(movies);
+
+  return (
+    <div>
+      <Banner />
+      <div className="text-2xl font-bold text-center m-5">
+        <h1>Trending Movies</h1>
+      </div>
+      <div className="flex flex-wrap gap-8 m-8">
+        {movies &&
+          movies.map((movie) => (
+            <MovieCard
+              movieObject={movie}
+             
+            />
+          ))}
+      </div>
+      <Pagination prevFn={pagePrevious} nextFn={pageNext} pageNo={page} />
+    </div>
+  );
 }
+
 export default Movies;

@@ -1,28 +1,44 @@
+// src/components/NavBar.jsx
+import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
-const Navbar = () => {
-    return (
-        <div className="flex border space-x-7 items-center pl-3 py-4 bg-gray-400">
-            <i 
-                className="fa-solid fa-clapperboard text-white" 
-                style={{ fontSize: "40px" }}
-            ></i>
+function NavBar() {
+  return (
+    <nav className="w-full bg-gray-900 shadow-md px-6 py-3 flex items-center justify-between">
+      {/* Left Section: Logo */}
+      <div className="flex items-center space-x-3">
+        <img className="w-[50px] h-[50px] object-contain" src={logo} alt="Logo" />
+        <h1 className="text-white font-bold text-xl">MovieHub</h1>
+      </div>
 
-            <Link 
-                to="/" 
-                className="text-blue-500 text-3xl font-bold !no-underline hover:no-underline"
-            >
-                Movies
-            </Link>
+      {/* Right Section: Links */}
+      <div className="flex items-center space-x-6">
+        <Link
+          to="/"
+          className="text-gray-300 hover:text-white transition-colors duration-200"
+        >
+          Movies
+        </Link>
+        <Link
+          to="/watchlist"
+          className="text-gray-300 hover:text-white transition-colors duration-200"
+        >
+          Watchlist
+        </Link>
 
-            <Link 
-                to="/watchList" 
-                className="text-blue-500 text-3xl font-bold !no-underline hover:no-underline"
-            >
-                WatchList
-            </Link>
-        </div>
-    );
-};
+        <Link
+          to="/mood"
+          className="text-gray-300 hover:text-white transition-colors duration-200"
+        >
+         Mood Selector
+        </Link>
 
-export default Navbar;
+     
+        
+      </div>
+    </nav>
+  );
+}
+
+export default NavBar;
