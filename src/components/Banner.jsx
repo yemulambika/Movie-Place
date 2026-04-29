@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { MovieContext } from "./MovieContext.jsx";
+import { MovieContext } from "./MovieContext.js";
 
 function Banner() {
 
