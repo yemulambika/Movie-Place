@@ -3,7 +3,7 @@ import { MovieContext } from "./MovieContext.jsx";
 
 import { Link } from "react-router-dom";
 import { getMovieVideos } from '../services/movieService.js';
-import TrailerModal from './TrailerModal';
+import TrailerModal from './TrailerModal.jsx';
 
 function MovieCard({ movieObject }) {
   const { watchList, handleAddtoWatchList, DeleteFromWatchList } =
