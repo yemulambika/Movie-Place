@@ -1,9 +1,9 @@
-import NavBar from "./components/Navbar.jsx";
+import Navbar from "./components/Navbar.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movies from "./components/Movies.jsx";
 import WatchList from "./components/WatchList.jsx";
 import { useEffect, useState } from "react";
-import { MovieContext } from "./components/MovieContext.jsx";
+import {MovieContext} from "./components/MovieContext.jsx";
 import MoodSelector from "./components/MoodSelector.jsx";
 
 
@@ -32,7 +32,7 @@ function App() {
       <div>
         <BrowserRouter>
           <div className="bg-black">
-            <NavBar />
+            <Navbar />
           </div>
 
           <Routes>

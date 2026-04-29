@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-function NavBar() {
+function Navbar() {
   return (
     <nav className="w-full bg-gray-900 shadow-md px-6 py-3 flex items-center justify-between">
       {/* Left Section: Logo */}
@@ -41,4 +41,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navbar;
